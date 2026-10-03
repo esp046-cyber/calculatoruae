@@ -1,6 +1,6 @@
-const STATIC = 'aedphp-static-v1';   // bump this when you change any file
+const STATIC = 'aedphp-static-v2';   // bump this when you change any file
 const DATA = 'aedphp-data';          // last known exchange-rate response
-const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.json', './icon.svg'];
+const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.json', './icon.svg', './apple-touch-icon.png', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(STATIC).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));

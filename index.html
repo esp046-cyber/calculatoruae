@@ -8,23 +8,36 @@
 <meta name="color-scheme" content="dark">
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="./icon.svg">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AED ⇄ PHP">
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 <main>
   <header>
     <button id="swap" class="chip" aria-label="Swap direction"><span id="fromLbl">AED</span> → <span id="toLbl">PHP</span></button>
-    <label class="ov">Override rate
-      <input id="ov" inputmode="decimal" placeholder="auto" autocomplete="off">
-    </label>
+    <button id="histBtn" class="chip">History</button>
   </header>
 
-  <section class="display" aria-live="polite">
+  <section class="display" id="display">
     <div id="expr" class="expr">0</div>
     <div class="row"><span id="baseTotal" class="base">0</span><span id="baseCur" class="cur">AED</span></div>
-    <div class="row main"><span id="convTotal" class="conv">0</span><span id="convCur" class="cur">PHP</span></div>
-    <div id="status" class="status">Loading rate…</div>
+    <button class="row main copy" id="copy" aria-label="Copy converted total"><span id="convTotal" class="conv">0</span><span id="convCur" class="cur">PHP</span></button>
+    <button id="status" class="status">Loading rate…</button>
+
+    <div id="sheet" class="overlay" hidden>
+      <div class="ttl">Rate &amp; fee</div>
+      <button class="fld" data-f="ov"><span>Rate (PHP per 1 AED)</span><b id="fRate"></b></button>
+      <button class="fld" data-f="fee"><span>Fee deducted (AED)</span><b id="fFee"></b></button>
+      <div class="acts"><button id="auto" class="chip">Use live rate</button><button id="done" class="chip pri">Done</button></div>
+    </div>
+    <div id="hist" class="overlay" hidden>
+      <div class="ttl">Last 10 calculations <button id="clearHist" class="lnk">Clear</button></div>
+      <div id="histList" class="hlist"></div>
+    </div>
   </section>
 
   <section class="pad" id="pad">
@@ -44,8 +57,9 @@
     <button class="k" data-k="2">2</button>
     <button class="k" data-k="3">3</button>
     <button class="k eq tall" data-k="=">=</button>
-    <button class="k wide" data-k="0">0</button>
+    <button class="k" data-k="0">0</button>
     <button class="k" data-k=".">.</button>
+    <button class="k fn" data-k="%">%</button>
   </section>
 </main>
 <script src="./app.js"></script>
