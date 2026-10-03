@@ -1,4 +1,4 @@
-const STATIC = 'aedphp-static-v3';   // bump this when you change any file
+const STATIC = 'aedphp-static-v4';   // bump this when you change any file
 const DATA = 'aedphp-data';          // last known exchange-rate response
 const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.json', './icon.svg', './apple-touch-icon.png', './icon-192.png', './icon-512.png'];
 

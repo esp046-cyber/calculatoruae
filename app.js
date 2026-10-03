@@ -169,7 +169,7 @@
     const text = `${S.target ? 'Padala target' : 'Padala breakdown'}\n${S.expr || '0'} ${from}\n` +
       (fee ? `Fee: ${fmt(fee, 2)} AED\n` : '') +
       `Rate: 1 AED = ${fmt(phpPerAed(), 4)} PHP\n${S.target ? 'AED needed' : 'Total'}: ${$('convTotal').textContent} ${to}`;
-    if (navigator.share) { try { await navigator.share({ title: 'AED ⇄ PHP', text }); } catch {} }
+    if (navigator.share) { try { await navigator.share({ title: 'AED ⇄ PHP', text, url: location.origin + location.pathname }); } catch {} }
     else { try { await navigator.clipboard.writeText(text); } catch {} S.toast = true; render(); setTimeout(() => { S.toast = false; render(); }, 1200); }
   }
 
