@@ -1,4 +1,4 @@
-const STATIC = 'aedphp-static-v2';   // bump this when you change any file
+const STATIC = 'aedphp-static-v3';   // bump this when you change any file
 const DATA = 'aedphp-data';          // last known exchange-rate response
 const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.json', './icon.svg', './apple-touch-icon.png', './icon-192.png', './icon-512.png'];
 
@@ -32,7 +32,7 @@ self.addEventListener('fetch', e => {
   // Static assets: cache first, then network; offline navigations get the app shell
   if (url.origin === location.origin) {
     e.respondWith(
-      caches.match(req).then(hit => hit || fetch(req).catch(() => req.mode === 'navigate' ? caches.match('./index.html') : undefined))
+      caches.match(req, { ignoreSearch: true }).then(hit => hit || fetch(req).catch(() => req.mode === 'navigate' ? caches.match('./index.html') : undefined))
     );
   }
 });

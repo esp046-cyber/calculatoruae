@@ -19,7 +19,7 @@
 <main>
   <header>
     <button id="swap" class="chip" aria-label="Swap direction"><span id="fromLbl">AED</span> → <span id="toLbl">PHP</span></button>
-    <button id="histBtn" class="chip">History</button>
+    <span class="hb"><button id="shareBtn" class="chip">Share</button><button id="histBtn" class="chip">History</button></span>
   </header>
 
   <section class="display" id="display">
@@ -29,10 +29,12 @@
     <button id="status" class="status">Loading rate…</button>
 
     <div id="sheet" class="overlay" hidden>
-      <div class="ttl">Rate &amp; fee</div>
+      <div class="ttl"><span>Rate &amp; fee</span><button id="done" class="chip pri">Done</button></div>
       <button class="fld" data-f="ov"><span>Rate (PHP per 1 AED)</span><b id="fRate"></b></button>
-      <button class="fld" data-f="fee"><span>Fee deducted (AED)</span><b id="fFee"></b></button>
-      <div class="acts"><button id="auto" class="chip">Use live rate</button><button id="done" class="chip pri">Done</button></div>
+      <button class="fld" data-f="fee"><span id="feeLbl">Fee deducted (AED)</span><b id="fFee"></b></button>
+      <div class="presets" id="presets"><button class="chip" data-fee="">No fee</button><button class="chip" data-fee="10">10</button><button class="chip" data-fee="15">15</button><button class="chip" data-fee="20">20</button></div>
+      <button class="fld" id="mode"><span>Mode</span><b id="fMode"></b></button>
+      <div class="acts"><button id="auto" class="chip">Use live rate</button></div>
     </div>
     <div id="hist" class="overlay" hidden>
       <div class="ttl">Last 10 calculations <button id="clearHist" class="lnk">Clear</button></div>

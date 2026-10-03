@@ -60,3 +60,15 @@ button.copy{justify-content:flex-end}
 .h small{color:var(--dim);display:block;font-size:11px}
 .h b{color:var(--accent);white-space:nowrap}
 .empty{color:var(--dim);font-size:14px;padding:12px 0}
+
+.hb{display:flex;gap:8px}
+.presets{display:flex;gap:8px}
+.presets .chip{padding:8px 14px;font-size:14px}
+
+.overlay{overflow-y:auto;gap:8px;padding:12px 16px}
+.ttl{align-items:center}
+.ttl .chip{padding:7px 16px;font-size:14px}
+.fld{padding:9px 12px}
+.fld b{font-size:18px}
+.acts{margin-top:0}
+.acts .chip,.presets .chip{padding:7px 14px;font-size:14px}
